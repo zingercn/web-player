@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>web components video player</title>
+</head>
+<style>
+    body{
+        margin: 0;
+        padding: 10px;
+        text-align: center;
+    }
+    /* demo 1 css */
+    .wrap{
+        width: 500px;
+        max-width: 100%;
+        height:400px;
+        margin:0 auto;
+    }
+    /* demo 2 css */
+    .modal{
+        background-color: #fff;
+        position: fixed;
+        z-index: 9;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+    }
+    .close{
+        position: absolute;
+        bottom: 10px;
+        display: block;
+        width:60px;
+        height:60px;
+        color: #000;
+    }
+</style>
+<body>
+    <h1>The best simple video player</h1>
+    <!-- demo 1 -->
+    <h2>demo 1</h2>
+    <div class="wrap">
+        <web-player src="demo.mp4" poster="demo.jpg"></web-player>
+    </div>
+    <!-- demo 2 -->
+    <h2>demo 2</h2>
+    <div>
+        <button id="btn">watch video</button>
+    </div>
+    <div class="modal" id="modal">
+        <span class="close" id="close">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+            </svg>
+        </span>
+        <web-player style="width: 80%; height: 80%;" id="player"></web-player>
+    </div>
+    <script type="module">
+        import {webPlayer} from './webPlayer.js'
+
+        // demo 2 js
+        document.querySelector('#close').addEventListener('click',(e)=>{
+            document.querySelector('#player').pause()
+            document.querySelector('#modal').style.display='none'
+        })
+        document.querySelector('#btn').addEventListener('click',(e)=>{
+            // set src
+            document.querySelector('#player').setAttribute('src','demo.mp4')
+            // play
+            document.querySelector('#player').play()
+            // show modal
+            document.querySelector('#modal').style.display='flex'
+        })
+    </script>
+</body>
+</html>
