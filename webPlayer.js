@@ -1,5 +1,5 @@
 /**
- * webPlayer.js
+ * WebPlayer.js
  * web components video player
  * v1.0.1
  */
