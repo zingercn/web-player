@@ -1,9 +1,9 @@
 /**
  * webPlayer.js
  * web components video player
- * v1.0.0
+ * v1.0.1
  */
-class webPlayer extends HTMLElement{
+class WebPlayer extends HTMLElement{
     _getStyle(){
         return `
         <style>
@@ -343,5 +343,5 @@ class webPlayer extends HTMLElement{
 	}
 
 }
-customElements.define('web-player', webPlayer)
-export {webPlayer}
+customElements.define('web-player', WebPlayer)
+export {WebPlayer}
