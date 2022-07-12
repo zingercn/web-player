@@ -11,7 +11,7 @@
     <web-player src="demo.mp4"></web-player>
 </div>
 <script type="module">
-    import {webPlayer} from './webPlayer.js'
+    import {WebPlayer} from './webPlayer.js'
 </script>
 ```
 ## License
